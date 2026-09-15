@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Energy Project Datasets
+P1_Core_ML_Energy/data/processed/*.csv
+
+# Energy Project Model Files
+P1_Core_ML_Energy/models/*.pkl
+
+# Energy Project Raw Dataset
+P1_Core_ML_Energy/data/raw/*.txt
+
+# Energy Project Outputs
+P1_Core_ML_Energy/outputs/predictions/*.csv
