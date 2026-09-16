@@ -68,6 +68,15 @@ class PredictionRequest(BaseModel):
     Global_active_power: float
 
 
+# API Health
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "service": "Energy Backend"
+    }
+
 # Root Endpoint
 
 @app.get("/")
