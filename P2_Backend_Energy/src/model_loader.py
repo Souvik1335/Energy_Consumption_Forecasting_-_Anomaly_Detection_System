@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 FORECASTING_MODEL_FILE = (
     BASE_DIR
     / "models"
-    / "forecasting_model_deployment.pkl"
+    / "forecasting_model_render.pkl"
 )
 
 ANOMALY_CONFIG_FILE = (
