@@ -231,4 +231,4 @@ P1_Core_ML_Energy/outputs/predictions/*.csv
 
 # P2 Backend Model Files
 P2_Backend_Energy/models/*.pkl
-!P2_Backend_Energy/models/forecasting_model_deployment.pkl
+!P2_Backend_Energy/models/forecasting_model_render.pkl

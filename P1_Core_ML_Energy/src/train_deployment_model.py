@@ -18,9 +18,8 @@ TEST_FILE = os.path.join(DATA_DIR, "test.csv")
 
 OUTPUT_MODEL = os.path.join(
     MODEL_DIR,
-    "forecasting_model_deployment.pkl"
+    "forecasting_model_render.pkl"
 )
-
 # FEATURES
 FEATURES = [
     "Hour",
@@ -92,8 +91,8 @@ print("TRAINING DEPLOYMENT RANDOM FOREST")
 print("=" * 60)
 
 model = RandomForestRegressor(
-    n_estimators=75,
-    max_depth=20,
+    n_estimators=25,
+    max_depth=12,
     min_samples_split=7,
     min_samples_leaf=5,
     max_features="log2",
