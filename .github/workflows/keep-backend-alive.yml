@@ -1,0 +1,21 @@
+
+name: Backend Keep Alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping-backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Ping FastAPI Backend
+        run: |
+          response=$(curl --fail --silent --show-error \
+            --max-time 30 \
+            https://energy-forecasting-api-k930.onrender.com/health)
+
+          echo "Backend health response: $response"
