@@ -1,7 +1,6 @@
 import streamlit as st
 
 
-# Page Configuration
 st.set_page_config(
     page_title="Model Performance",
     page_icon="📊",
@@ -9,100 +8,137 @@ st.set_page_config(
 )
 
 
-# Page Title
 st.title("📊 Model Performance")
 
 st.write(
     "Performance of the energy consumption prediction system "
-    "on previously unseen data."
+    "on previously unseen test data."
 )
 
 
-# Model Information
 st.subheader("Prediction Model")
 
 st.write(
-    "The system uses a Random Forest model to predict "
-    "household energy consumption."
+    "The system uses a Random Forest regression model to "
+    "predict household energy consumption."
 )
 
 
-# Test Performance
 st.subheader("Test Performance")
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
+
     st.metric(
         "R² Score",
-        "0.9432"
+        "0.9349"
     )
 
 with col2:
+
     st.metric(
         "MAE",
-        "0.0768"
+        "0.0878"
     )
 
 with col3:
+
     st.metric(
         "RMSE",
-        "0.2027"
+        "0.2170"
     )
 
 with col4:
+
     st.metric(
         "MSE",
-        "0.0411"
+        "0.0471"
     )
 
 
-# What The Metrics Mean
+st.subheader("Validation Performance")
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+
+    st.metric(
+        "R² Score",
+        "0.9410"
+    )
+
+with col2:
+
+    st.metric(
+        "MAE",
+        "0.1023"
+    )
+
+with col3:
+
+    st.metric(
+        "RMSE",
+        "0.2533"
+    )
+
+with col4:
+
+    st.metric(
+        "MSE",
+        "0.0642"
+    )
+
+
 st.subheader("What do these results mean?")
 
 st.write(
     """
-    **R² Score:** Shows how well the system explains changes
+    **R² Score:** Shows how well the model explains variations
     in energy consumption. A value closer to 1 indicates
     stronger predictive performance.
 
-    **MAE:** Shows the average difference between predicted
-    and actual energy consumption.
+    **MAE:** Shows the average absolute difference between
+    predicted and actual energy consumption.
 
-    **RMSE:** Shows the typical prediction error while giving
-    more importance to larger errors.
+    **RMSE:** Measures prediction error while giving more
+    importance to larger errors.
 
-    **MSE:** Measures the squared prediction error.
+    **MSE:** Measures the average squared prediction error.
     """
 )
 
 
-# Anomaly Detection
 st.subheader("Anomaly Detection")
 
 col1, col2 = st.columns(2)
 
 with col1:
+
     st.metric(
         "Detection Method",
         "Residual Analysis"
     )
 
 with col2:
+
     st.metric(
         "Detection Threshold",
-        "0.144"
+        "Model Configuration"
     )
 
 
 st.info(
-    "The system compares predicted and actual energy usage "
-    "to identify unusually different consumption."
+    "The system compares actual and predicted energy usage. "
+    "The absolute residual is then compared with the configured "
+    "anomaly threshold to identify unusual consumption."
 )
 
 
-# Final Status
+st.markdown("---")
+
+
 st.success(
-    "✅ The prediction and anomaly detection system "
-    "is ready for use."
+    "✅ The energy forecasting and anomaly detection "
+    "system is ready for use."
 )

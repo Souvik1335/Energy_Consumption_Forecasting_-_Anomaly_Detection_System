@@ -1,7 +1,6 @@
 import streamlit as st
 
 
-# Page Configuration
 st.set_page_config(
     page_title="Energy Monitoring",
     page_icon="⚡",
@@ -9,53 +8,65 @@ st.set_page_config(
 )
 
 
-# Main Title
 st.title("⚡ Energy Consumption Monitoring")
 
-
-# Introduction
 st.write(
     "Monitor household energy consumption, predict upcoming usage, "
     "and identify unusual consumption patterns."
 )
 
 
-# Quick Overview
+st.markdown("---")
+
+
 st.subheader("What can you do?")
 
 
 col1, col2, col3 = st.columns(3)
 
+
 with col1:
+
     st.info(
-        "### 🔮 Predict Energy\n"
-        "Estimate household energy consumption."
+        "### 🔮 Energy Forecast\n\n"
+        "Predict household energy consumption "
+        "using Machine Learning."
     )
+
 
 with col2:
+
     st.warning(
-        "### 🚨 Detect Unusual Usage\n"
-        "Find consumption patterns that look unusual."
+        "### 🚨 Anomaly Detection\n\n"
+        "Identify unusual energy consumption "
+        "patterns."
     )
+
 
 with col3:
+
     st.success(
-        "### 📊 View Results\n"
-        "Understand predictions and system results."
+        "### 📊 Model Performance\n\n"
+        "Explore the performance of the "
+        "Machine Learning model."
     )
 
 
-# Getting Started
+st.markdown("---")
+
+
 st.subheader("Getting Started")
 
 st.write(
-    "Choose an option from the sidebar to begin."
+    "Choose an option from the sidebar to explore "
+    "the Energy Forecast, Anomaly Detection, or "
+    "Model Performance sections."
 )
 
 
-# Footer
 st.markdown("---")
 
+
 st.caption(
-    "Energy Consumption Monitoring System"
+    "Energy Consumption Forecasting & Anomaly Detection System"
 )
