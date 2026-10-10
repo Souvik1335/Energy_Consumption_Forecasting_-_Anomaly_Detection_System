@@ -9,13 +9,32 @@ on:
 jobs:
   ping-backend:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 3
 
     steps:
       - name: Ping FastAPI Backend
         run: |
-          response=$(curl --fail --silent --show-error \
-            --max-time 30 \
-            https://energy-forecasting-api-k930.onrender.com/health)
+          max_attempts=3
+          attempt=1
 
-          echo "Backend health response: $response"
+          while [ "$attempt" -le "$max_attempts" ]; do
+            echo "Attempt $attempt of $max_attempts..."
+
+            if response=$(curl --fail --silent --show-error \
+              --connect-timeout 15 \
+              --max-time 45 \
+              https://energy-forecasting-api-k930.onrender.com/health); then
+              echo "Backend health response: $response"
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$max_attempts" ]; then
+              echo "Request failed. Retrying in 10 seconds..."
+              sleep 10
+            fi
+
+            attempt=$((attempt + 1))
+          done
+
+          echo "Backend health check failed after $max_attempts attempts."
+          exit 1
